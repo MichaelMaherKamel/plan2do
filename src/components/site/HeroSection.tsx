@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { ArrowRight, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { WorkflowAnimation } from '@/components/workflow-animation'

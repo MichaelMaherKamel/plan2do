@@ -2,8 +2,6 @@ import Image from 'next/image'
 import { ArrowRight, BrainCircuit, Calendar, CheckCircle, Network, Sparkles, Rocket } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-
-import Background from '@/components/site/Background'
 import HeroSection from '@/components/site/HeroSection'
 
 export default function LandingPage() {
