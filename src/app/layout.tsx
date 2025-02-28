@@ -8,9 +8,9 @@ import Footer from '@/components/site/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'TaskFlow AI - AI-Powered Task & Calendar Management',
+  title: 'PLAN2DO - AI-Powered Task & Calendar Management',
   description:
-    'TaskFlow AI intelligently connects your tasks, plans, and calendar to create seamless workflows that adapt to your life.',
+    'PLAN2Do AI intelligently connects your tasks, plans, and calendar to create seamless workflows that adapt to your life.',
   themeColor: '#aa55ff',
   viewport: 'width=device-width, initial-scale=1.0',
 }
