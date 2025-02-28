@@ -3,6 +3,7 @@ import { ArrowRight, BrainCircuit, Calendar, CheckCircle, Network, Sparkles, Roc
 
 import { Button } from '@/components/ui/button'
 import HeroSection from '@/components/site/HeroSection'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 
 export default function LandingPage() {
   return (
@@ -311,7 +312,6 @@ export default function LandingPage() {
         <section id='pricing' className='w-full py-12 md:py-24 lg:py-32 relative'>
           <div className='absolute inset-0 bg-gradient-to-r from-background via-primary/5 to-background'></div>
           <div className='container mx-auto px-4 md:px-6 relative'>
-            {/* Added top margin to create space below the divider */}
             <div className='flex flex-col items-center justify-center space-y-4 text-center mt-16 md:mt-20'>
               <div className='space-y-2'>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary/90 to-white'>
@@ -322,136 +322,148 @@ export default function LandingPage() {
                 </p>
               </div>
             </div>
-            <div className='mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3'>
+            <div className='mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3 items-stretch'>
               {/* Free Plan */}
-              <div className='flex flex-col rounded-xl border border-primary/20 glass-card p-6 shadow-sm transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
-                <div className='space-y-2'>
-                  <h3 className='text-2xl font-bold'>Free</h3>
-                  <p className='text-muted-foreground'>Essential features for individuals</p>
-                </div>
-                <div className='mt-4 space-y-2'>
-                  <div className='text-4xl font-bold'>$0</div>
-                  <p className='text-muted-foreground'>Forever free</p>
-                </div>
-                <ul className='mt-6 space-y-2 text-sm'>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Basic task management</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Calendar integration</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Limited AI suggestions</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Up to 5 automated workflows</span>
-                  </li>
-                </ul>
-                <div className='mt-6'>
-                  <Button
-                    variant='outline'
-                    className='w-full border-primary/20 bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'
-                  >
-                    Get Started
-                  </Button>
-                </div>
-              </div>
+              <Card className='border-primary/20 glass-card shadow-sm transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
+                <CardHeader>
+                  <CardTitle className='text-2xl font-bold'>Free</CardTitle>
+                  <CardDescription>Essential features for individuals</CardDescription>
+                  <div className='mt-4 space-y-2'>
+                    <div className='text-4xl font-bold'>$0</div>
+                    <p className='text-muted-foreground'>Forever free</p>
+                  </div>
+
+                  {/* Button moved here, above the feature list */}
+                  <div className='mt-6'>
+                    <Button
+                      variant='outline'
+                      className='w-full border-primary/20 bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'
+                    >
+                      Get Started
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className='space-y-2 text-sm mt-4'>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Basic task management</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Calendar integration</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Limited AI suggestions</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Up to 5 automated workflows</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
 
               {/* Pro Plan */}
-              <div className='flex flex-col rounded-xl border border-primary/20 glass-card p-6 shadow-sm relative transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
+              <Card className='border-primary/20 glass-card shadow-sm relative transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
                 <div className='absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-gradient-to-r from-primary to-primary/80 px-3 py-1 text-xs font-semibold text-primary-foreground glow'>
                   Most Popular
                 </div>
-                <div className='space-y-2'>
-                  <h3 className='text-2xl font-bold'>Pro</h3>
-                  <p className='text-muted-foreground'>Advanced features for professionals</p>
-                </div>
-                <div className='mt-4 space-y-2'>
-                  <div className='text-4xl font-bold'>$9.99</div>
-                  <p className='text-muted-foreground'>per month</p>
-                </div>
-                <ul className='mt-6 space-y-2 text-sm'>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Everything in Free</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Advanced AI task suggestions</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Unlimited automated workflows</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Priority-based scheduling</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Productivity analytics</span>
-                  </li>
-                </ul>
-                <div className='mt-6'>
-                  <Button className='w-full glow bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300'>
-                    Get Started
-                  </Button>
-                </div>
-              </div>
+                <CardHeader>
+                  <CardTitle className='text-2xl font-bold'>Pro</CardTitle>
+                  <CardDescription>Advanced features for professionals</CardDescription>
+                  <div className='mt-4 space-y-2'>
+                    <div className='text-4xl font-bold'>$9.99</div>
+                    <p className='text-muted-foreground'>per month</p>
+                  </div>
+
+                  {/* Button moved here, above the feature list */}
+                  <div className='mt-6'>
+                    <Button className='w-full glow bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300'>
+                      Get Started
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className='space-y-2 text-sm mt-4'>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Everything in Free</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Advanced AI task suggestions</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Unlimited automated workflows</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Priority-based scheduling</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Productivity analytics</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
 
               {/* Teams Plan */}
-              <div className='flex flex-col rounded-xl border border-primary/20 glass-card p-6 shadow-sm transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
-                <div className='space-y-2'>
-                  <h3 className='text-2xl font-bold'>Teams</h3>
-                  <p className='text-muted-foreground'>Powerful features for teams</p>
-                </div>
-                <div className='mt-4 space-y-2'>
-                  <div className='text-4xl font-bold'>$19.99</div>
-                  <p className='text-muted-foreground'>per user/month</p>
-                </div>
-                <ul className='mt-6 space-y-2 text-sm'>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Everything in Pro</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Team collaboration features</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Shared workflows & templates</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Admin controls & permissions</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Team productivity insights</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
-                    <span>Priority support</span>
-                  </li>
-                </ul>
-                <div className='mt-6'>
-                  <Button
-                    variant='outline'
-                    className='w-full border-primary/20 bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'
-                  >
-                    Contact Sales
-                  </Button>
-                </div>
-              </div>
+              <Card className='border-primary/20 glass-card shadow-sm transition-all duration-300 hover:glow hover:border-primary/40 hover:translate-y-[-4px]'>
+                <CardHeader>
+                  <CardTitle className='text-2xl font-bold'>Teams</CardTitle>
+                  <CardDescription>Powerful features for teams</CardDescription>
+                  <div className='mt-4 space-y-2'>
+                    <div className='text-4xl font-bold'>$19.99</div>
+                    <p className='text-muted-foreground'>per user/month</p>
+                  </div>
+
+                  {/* Button moved here, above the feature list */}
+                  <div className='mt-6'>
+                    <Button
+                      variant='outline'
+                      className='w-full border-primary/20 bg-background/50 backdrop-blur-sm hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'
+                    >
+                      Contact Sales
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className='space-y-2 text-sm mt-4'>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Everything in Pro</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Team collaboration features</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Shared workflows & templates</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Admin controls & permissions</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Team productivity insights</span>
+                    </li>
+                    <li className='flex items-center'>
+                      <CheckCircle className='mr-2 h-4 w-4 text-green-500' />
+                      <span>Priority support</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
-
+        
         {/* FAQ Section - Improved section padding */}
         <section
           id='faq'

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Calendar, CheckSquare, Mail, MessageSquare, Cpu, Zap } from 'lucide-react'
+import { Calendar, CheckSquare, Mail, MessageSquare, Cpu } from 'lucide-react'
 
 export function WorkflowAnimation() {
   const [animate, setAnimate] = useState(false)
@@ -26,7 +26,6 @@ export function WorkflowAnimation() {
         }`}
       >
         <Cpu className='w-7 h-7 text-primary animate-pulse' />
-        <Zap className='absolute w-3 h-3 text-primary/90 -right-1 -top-1 animate-pulse' />
         <div className='absolute inset-0 rounded-full bg-primary/10 animate-ping' style={{ animationDuration: '3s' }} />
       </div>
 

@@ -53,7 +53,9 @@
   --card-foreground: oklch(0.99 0 0);
   --popover: oklch(0.11 0 0);
   --popover-foreground: oklch(0.99 0 0);
-  --primary: oklch(0.76 0.19 296.6); /* Vibrant purple */
+  /* --primary: oklch(0.76 0.19 296.6); Vibrant purple
+  --primary: oklch(0.76 0.2 180); Vibrant neon cyan */
+  --primary: oklch(0.76 0.2 195); /* Vibrant teal */
   --primary-foreground: oklch(0.09 0 0);
   --secondary: oklch(0.16 0 0);
   --secondary-foreground: oklch(0.99 0 0);
@@ -65,7 +67,7 @@
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.18 0 0);
   --input: oklch(0.18 0 0);
-  --ring: oklch(0.76 0.19 296.6); /* Match primary for rings */
+  --ring: oklch(0.76 0.2 195); /* Match primary teal for rings */
   --chart-1: oklch(0.65 0.24 264.4);
   --chart-2: oklch(0.7 0.22 162.5);
   --chart-3: oklch(0.76 0.19 70.1);
@@ -73,13 +75,13 @@
   --chart-5: oklch(0.67 0.25 16.4);
   --sidebar: oklch(0.13 0 0);
   --sidebar-foreground: oklch(0.99 0 0);
-  --sidebar-primary: oklch(0.76 0.19 296.6);
+  --sidebar-primary: oklch(0.76 0.2 195); /* Match primary teal */
   --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-accent: oklch(0.18 0 0);
   --sidebar-accent-foreground: oklch(0.99 0 0);
   --sidebar-border: oklch(0.18 0 0);
   --sidebar-ring: oklch(0.43 0 0);
-  --primary-rgb: 170 85 255; /* Brighter purple for RGB operations */
+  --primary-rgb: 64 200 196; /* Teal RGB equivalent for operations */
 }
 
 @theme inline {
