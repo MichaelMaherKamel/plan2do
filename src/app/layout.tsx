@@ -2,8 +2,7 @@ import type React from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/site/Header'
-import Footer from '@/components/site/Footer'
+import { SessionProvider } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='dark scroll-smooth overflow-x-hidden'>
-      <body className={`${inter.className} antialiased overflow-x-hidden max-w-full`}>
-        <Header />
-        <div className='relative overflow-hidden w-full pt-16 md:pt-16'>{children}</div>
-        <Footer />
+      <body className={`${inter.className} antialiased overflow-x-hidden`}>
+        <SessionProvider>
+          <main>{children}</main>
+        </SessionProvider>
       </body>
     </html>
   )

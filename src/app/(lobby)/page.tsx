@@ -1,14 +1,13 @@
 import Image from 'next/image'
 import { ArrowRight, BrainCircuit, Calendar, CheckCircle, Network, Sparkles, Rocket } from 'lucide-react'
-
 import { Button } from '@/components/ui/button'
 import HeroSection from '@/components/site/HeroSection'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 
 export default function LandingPage() {
   return (
     <div className='flex w-full min-h-screen flex-col bg-background'>
-      <main className='flex-1 relative z-10'>
+      <main className='flex-1'>
         {/* Hero Section */}
         <HeroSection />
 
@@ -463,7 +462,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        
+
         {/* FAQ Section - Improved section padding */}
         <section
           id='faq'

@@ -1,4 +1,5 @@
 import { boolean, timestamp, pgTable, text, primaryKey, integer } from 'drizzle-orm/pg-core'
+import { RollerCoaster } from 'lucide-react'
 import type { AdapterAccountType } from 'next-auth/adapters'
 
 export const users = pgTable('user', {
@@ -9,6 +10,9 @@ export const users = pgTable('user', {
   email: text('email').unique(),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   image: text('image'),
+  role: text('role', { enum: ['admin', 'user'] })
+    .default('user')
+    .notNull(),
 })
 
 export const accounts = pgTable(
