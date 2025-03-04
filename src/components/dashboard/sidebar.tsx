@@ -76,7 +76,7 @@ export default function Sidebar() {
       >
         <div className='h-full flex flex-col'>
           <Link
-            href='/'
+            href='/dashboard'
             rel='noopener noreferrer'
             className='h-16 px-6 flex items-center border-b border-sidebar-border'
           >
