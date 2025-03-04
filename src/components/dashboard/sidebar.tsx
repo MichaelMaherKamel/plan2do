@@ -106,7 +106,7 @@ export default function Sidebar() {
         id='mobile-sidebar'
         className={cn(
           'fixed inset-y-0 left-0 z-40 w-64 bg-sidebar transform transition-transform duration-200 ease-in-out',
-          'lg:translate-x-0 lg:static lg:w-64 border-r border-sidebar-border',
+          'lg:translate-x-0 lg:static lg:w-64 border-r border-primary/20',
           'backdrop-blur-xl h-screen overflow-hidden',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
@@ -115,7 +115,7 @@ export default function Sidebar() {
           <Link
             href='/dashboard'
             rel='noopener noreferrer'
-            className='h-16 px-6 flex items-center border-b border-sidebar-border'
+            className='h-16 px-6 flex items-center border-b border-primary/20'
           >
             <div className='flex items-center gap-3'>
               <CalendarDays className='h-6 w-6 text-primary' />
@@ -217,7 +217,7 @@ export default function Sidebar() {
             </div>
           </div>
 
-          <div className='px-4 py-4 border-t border-sidebar-border'>
+          <div className='px-4 py-4 border-t border-primary/20'>
             <div className='space-y-1'>
               <NavItem href='/dashboard/settings' icon={Settings}>
                 Settings

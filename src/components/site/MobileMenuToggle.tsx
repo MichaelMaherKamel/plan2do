@@ -59,10 +59,13 @@ export default function MobileMenuToggle({ session }: { session: Session | null 
       <div
         ref={menuRef}
         className={`md:hidden transition-all duration-300 ease-in-out absolute top-16 left-0 right-0 z-50 ${
-          mobileMenuOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0 overflow-hidden py-0'
+          mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
         }`}
       >
-        <div className='container mx-auto px-4 space-y-4 glass-card rounded-xl border border-primary/10 pb-4'>
+        {/* Base layer with high opacity to ensure visibility on all devices */}
+        <div className='container mx-auto px-4 pt-4 pb-4 space-y-4 rounded-b-xl border-x border-b border-primary/10 bg-background/95 backdrop-blur-xl shadow-lg'>
+          {/* Add an overlay div for browsers that don't support backdrop-filter */}
+          <div className='absolute inset-0 bg-background/90 -z-10 rounded-b-xl'></div>
           <Link
             href='#features'
             className='block py-2 text-base font-medium text-foreground hover:text-primary transition-colors'

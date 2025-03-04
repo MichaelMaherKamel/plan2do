@@ -1,5 +1,4 @@
 import { LogOut, MoveUpRight, Settings, CreditCard, FileText } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Session } from 'next-auth'
@@ -19,9 +18,7 @@ interface Profile01Props {
 }
 
 export default function Profile01({ session, subscription = 'Free Trial' }: Profile01Props) {
-  const { name, email, image } = session.user || {}
-  const userImage =
-    image || 'https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-02-albo9B0tWOSLXCVZh9rX9KFxXIVWMr.png'
+  const { name, email } = session.user || {}
   const userName = name || 'User'
   const userRole = email || ''
 
@@ -38,31 +35,14 @@ export default function Profile01({ session, subscription = 'Free Trial' }: Prof
       href: '#',
       icon: <Settings className='w-4 h-4' />,
     },
-    {
-      label: 'Terms & Policies',
-      href: '#',
-      icon: <FileText className='w-4 h-4' />,
-      external: true,
-    },
   ]
 
   return (
     <div className='w-full max-w-sm mx-auto'>
       <div className='relative overflow-hidden rounded-2xl border border-primary/20 glass-card'>
-        <div className='relative px-6 pt-12 pb-6'>
-          <div className='flex items-center gap-4 mb-8'>
-            <div className='relative shrink-0'>
-              <Image
-                src={userImage}
-                alt={userName}
-                width={72}
-                height={72}
-                className='rounded-full ring-4 ring-primary/20 object-cover'
-              />
-              <div className='absolute bottom-0 right-0 w-4 h-4 rounded-full bg-emerald-500 ring-2 ring-background' />
-            </div>
-
-            {/* Profile Info */}
+        <div className='relative px-6 pt-6 pb-6'>
+          <div className='mb-6'>
+            {/* Profile Info - removed image, keeping only name and email */}
             <div className='flex-1'>
               <h2 className='text-xl font-semibold text-foreground'>{userName}</h2>
               <p className='text-muted-foreground'>{userRole}</p>
@@ -89,7 +69,6 @@ export default function Profile01({ session, subscription = 'Free Trial' }: Prof
                 </div>
               </Link>
             ))}
-
             <SignOutButton />
           </div>
         </div>
