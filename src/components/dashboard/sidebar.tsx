@@ -20,16 +20,50 @@ import {
   TrendingUp,
   CheckCircle,
   MessageCircle,
+  X,
 } from 'lucide-react'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 
 export default function Sidebar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+
+  // Close the sidebar when clicking outside of it on mobile
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const sidebar = document.getElementById('mobile-sidebar')
+      const toggleButton = document.getElementById('sidebar-toggle')
+
+      if (
+        isMobileMenuOpen &&
+        sidebar &&
+        toggleButton &&
+        !sidebar.contains(event.target as Node) &&
+        !toggleButton.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    // Add event listener when the sidebar is open
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    // Clean up
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
+
+  // Close the sidebar when the route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [pathname])
 
   function handleNavigation() {
     setIsMobileMenuOpen(false)
@@ -60,17 +94,20 @@ export default function Sidebar() {
   return (
     <>
       <button
+        id='sidebar-toggle'
         type='button'
-        className='lg:hidden fixed top-4 left-4 z-[70] p-2 rounded-lg bg-background/60 backdrop-blur-sm border border-primary/20 shadow-md'
+        className='lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-background/60 backdrop-blur-sm border border-primary/20 shadow-md'
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label={isMobileMenuOpen ? 'Close sidebar' : 'Open sidebar'}
       >
-        <Menu className='h-5 w-5 text-primary' />
+        {isMobileMenuOpen ? <X className='h-5 w-5 text-primary' /> : <Menu className='h-5 w-5 text-primary' />}
       </button>
       <nav
+        id='mobile-sidebar'
         className={cn(
-          'fixed inset-y-0 left-0 z-[70] w-64 bg-sidebar transform transition-transform duration-200 ease-in-out',
+          'fixed inset-y-0 left-0 z-40 w-64 bg-sidebar transform transition-transform duration-200 ease-in-out',
           'lg:translate-x-0 lg:static lg:w-64 border-r border-sidebar-border',
-          'backdrop-blur-xl',
+          'backdrop-blur-xl h-screen overflow-hidden',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -195,7 +232,7 @@ export default function Sidebar() {
 
       {isMobileMenuOpen && (
         <div
-          className='fixed inset-0 bg-black bg-opacity-50 z-[65] lg:hidden backdrop-blur-sm'
+          className='fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden backdrop-blur-sm'
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
